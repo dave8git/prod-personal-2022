@@ -3,7 +3,7 @@ import productsData from '../../data/products';
 import Product from '../Product/Product';
 
 const Products = () => {
-  const [products]  = useState(productsData);
+  const [products] = useState(productsData);
 
   return (
     <section>
@@ -21,7 +21,7 @@ const Products = () => {
         colors={products[1].colors}
         sizes={products[1].sizes}
         basePrice={products[1].basePrice} /> */}
-        {products.map(product => <Product key={product.id} {...product} />)};
+      {products.map(product => <Product key={product.id} {...product} />)};
     </section>
   );
 };
