@@ -1,4 +1,5 @@
 import styles from './Product.module.scss';
+import PropTypes from 'prop-types';
 
 const OptionSize = (props) => {
     return (
@@ -10,6 +11,12 @@ const OptionSize = (props) => {
               <li><button type="button">XL</button></li> */}
         </ul>
     )
+};
+
+OptionSize.propTypes={
+    sizes: PropTypes.array.isRequired,
+    setCurrentSize: PropTypes.func.isRequired,
+    currentSize: PropTypes.object.isRequired,
 };
 
 export default OptionSize;

@@ -1,5 +1,6 @@
 import styles from './Product.module.scss';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const OptionColor = (props) => {
     return (
@@ -16,6 +17,12 @@ const OptionColor = (props) => {
               <li><button type="button" className={clsx(styles.colorWhite)} /></li> */}
         </ul>
     )
+};
+
+OptionColor.propTypes={
+    colors: PropTypes.array.isRequired,
+    setCurrentColor: PropTypes.func.isRequired,
+    currentColor: PropTypes.string.isRequired,
 };
 
 export default OptionColor;

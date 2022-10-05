@@ -1,6 +1,7 @@
 import styles from './Product.module.scss';
 import Button from '../Button/Button';
 import { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import ProductImage from './ProductImage';
 import OptionColor from './OptionColor';
 import OptionSize from './OptionSize';
@@ -58,5 +59,13 @@ const Product = props => {
     </article>
   )
 };
+
+Product.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  basePrice: PropTypes.number.isRequired,
+  sizes: PropTypes.array.isRequired,
+  colors: PropTypes.array.isRequired,
+}
 
 export default Product;
