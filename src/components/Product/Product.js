@@ -1,6 +1,6 @@
 import styles from './Product.module.scss';
 import Button from '../Button/Button';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ProductImage from './ProductImage';
 import OptionColor from './OptionColor';
 import OptionSize from './OptionSize';
@@ -13,9 +13,9 @@ const Product = props => {
     return styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()];
   }
 
-  const getPrice = () => {
+  const getPrice = useMemo(props => {
     return props.basePrice + currentSize.additionalPrice;
-  }
+  }, [currentSize.additionalPrice]);
 
   const onBuy = (event) => {
     event.preventDefault();
