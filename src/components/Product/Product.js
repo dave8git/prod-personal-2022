@@ -13,17 +13,17 @@ const Product = props => {
     return styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()];
   }
 
-  const getPrice = useMemo(props => {
+  const price = useMemo(() => {
     return props.basePrice + currentSize.additionalPrice;
   }, [currentSize.additionalPrice]);
 
   const onBuy = (event) => {
     event.preventDefault();
-    const productSummary = {
-      price: getPrice(),
-      color: currentColor,
-      size: currentSize,
-      name: props.name,
+    const productSummary = { 
+    price: price, 
+    color: currentColor,
+    size: currentSize, 
+    name: props.name,
     }
     console.log(productSummary);
   }
@@ -35,7 +35,7 @@ const Product = props => {
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
-          <span className={styles.price}>Price: {getPrice()}$</span>
+          <span className={styles.price}>Price: {price}$</span>
         </header>
         <form>
           <div className={styles.sizes}>
@@ -46,9 +46,9 @@ const Product = props => {
           </div>
           <div className={styles.colors}>
             <h3 className={styles.optionLabel}>Colors</h3>
-
-            <OptionColor colors={props.colors} setCurrentColor={setCurrentColor} currentColor={currentColor} />
-
+            
+            <OptionColor colors={props.colors} setCurrentColor={setCurrentColor} currentColor={currentColor} /> 
+           
           </div>
           <Button className={styles.button} onClick={onBuy}>
             <span className="fa fa-shopping-cart" />
